@@ -1,5 +1,5 @@
-#ifndef SCANNER_H
-#define SCANNER_H
+#ifndef PL0LA_SCANNER_H
+#define PL0LA_SCANNER_H
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -54,4 +54,4 @@ bool skipComments(FILE * fp);
  */
 void endToken(FILE * fp);
 
-#endif /* SCANNER_H */
+#endif /* PL0LA_SCANNER_H */

@@ -1,5 +1,5 @@
-#ifndef LIST_H
-#define LIST_H
+#ifndef PL0LA_LIST_H
+#define PL0LA_LIST_H
 
 /**
  * @file list.h
@@ -71,4 +71,4 @@ token *get(list *l, int i);
  */
 list *free_list(list *l);
 
-#endif /* LIST_H */
+#endif /* PL0LA_LIST_H */

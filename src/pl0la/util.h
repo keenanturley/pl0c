@@ -1,5 +1,5 @@
-#ifndef UTIL_H
-#define UTIL_H
+#ifndef PL0LA_UTIL_H
+#define PL0LA_UTIL_H
 
 /**
  * @file util.h
@@ -41,4 +41,4 @@ void print_lexeme_list(list *l);
 
 void print_lexeme_list_symbolic(list *l);
 
-#endif /* UTIL_H */
+#endif /* PL0LA_UTIL_H */
