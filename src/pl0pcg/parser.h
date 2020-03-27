@@ -1,5 +1,5 @@
-#ifndef PARSER_H
-#define PARSER_H
+#ifndef PL0PCG_PARSER_H
+#define PL0PCG_PARSER_H
 
 #include "symbol.h"
 #include "codegen.h"
@@ -161,4 +161,4 @@ void parse_term(parser_t *parser);
  */
 void parse_factor(parser_t *parser);
 
-#endif /* PARSER_H */
+#endif /* PL0PCG_PARSER_H */

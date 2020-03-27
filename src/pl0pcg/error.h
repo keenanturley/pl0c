@@ -1,5 +1,5 @@
-#ifndef ERROR_H
-#define ERROR_H
+#ifndef PL0PCG_ERROR_H
+#define PL0PCG_ERROR_H
 
 typedef enum error_type {
     PERIOD_EXPECTED = 1,
@@ -31,4 +31,4 @@ typedef enum error_type {
 
 void error(error_type e);
 
-#endif /* ERROR_H */
+#endif /* PL0PCG_ERROR_H */

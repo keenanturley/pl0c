@@ -1,5 +1,5 @@
-#ifndef CODEGEN_H
-#define CODEGEN_H
+#ifndef PL0PCG_CODEGEN_H
+#define PL0PCG_CODEGEN_H
 
 #define MAX_CODE_LENGTH 200
 
@@ -61,4 +61,4 @@ void emit_instruction(code_generator_t *generator, opcode op, int r, int l,
  */
 void emit_prepared_instruction(code_generator_t *generator, cg_instruction *i);
 
-#endif /* CODEGEN_H */
+#endif /* PL0PCG_CODEGEN_H */

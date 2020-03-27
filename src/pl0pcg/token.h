@@ -1,5 +1,5 @@
-#ifndef TOKEN_H
-#define TOKEN_H
+#ifndef PL0PCG_TOKEN_H
+#define PL0PCG_TOKEN_H
 
 /* Token Types */
 typedef enum token_type { nulsym = 1, identsym, numbersym, plussym, minussym,
@@ -35,4 +35,4 @@ token_type string_to_token(char *str);
  */
 char *token_to_string(token_type token);
 
-#endif /* TOKEN_H */
+#endif /* PL0PCG_TOKEN_H */

@@ -1,5 +1,5 @@
-#ifndef SYMBOL_H
-#define SYMBOL_H
+#ifndef PL0PCG_SYMBOL_H
+#define PL0PCG_SYMBOL_H
 
 #define MAX_SYMBOL_TABLE_SIZE 200
 
@@ -110,4 +110,4 @@ void insert_symbol(symbol_table_t *table, symbol *sym);
  */
 symbol *search_symbol(symbol_table_t *table, char name[12]);
 
-#endif /* SYMBOL_H */
+#endif /* PL0PCG_SYMBOL_H */
