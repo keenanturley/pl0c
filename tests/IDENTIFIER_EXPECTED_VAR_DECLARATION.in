@@ -1,0 +1,7 @@
+const m = 7, n = 85;
+var 7;
+
+begin
+    x := m;
+    y := n;
+end.

@@ -1,0 +1,7 @@
+var x, w;
+begin
+   x:= 4;
+   w:= 7;
+   while w > x 
+	w:= w - 1;
+end
