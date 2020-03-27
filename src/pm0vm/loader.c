@@ -21,7 +21,7 @@ void parse_instruction(char * line, instruction * i) {
     i->m  = atoi(m);
 }
 
-void load(char * file_path, p_machine * vm) {
+void load_file(char * file_path, p_machine * vm) {
     FILE * fp = fopen(file_path, "r");
     char * line = NULL;
     size_t n = 0;

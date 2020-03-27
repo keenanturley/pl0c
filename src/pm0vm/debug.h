@@ -1,5 +1,5 @@
-#ifndef DEBUG_H
-#define DEBUG_H
+#ifndef PM0VM_DEBUG_H
+#define PM0VM_DEBUG_H
 
 /*
 Debug Mode:
@@ -57,4 +57,4 @@ Parameters:
 */
 void print_state(p_machine * vm);
 
-#endif /* DEBUG_H */
+#endif /* PM0VM_DEBUG_H */

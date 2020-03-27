@@ -1,5 +1,5 @@
-#ifndef LOADER_H
-#define LOADER_H
+#ifndef PM0VM_LOADER_H
+#define PM0VM_LOADER_H
 
 #include "pm0.h"
 
@@ -17,7 +17,7 @@ Note:
 void parse_instruction(char * line, instruction * i);
 
 /*
-Function: load
+Function: load_file
     Attempts to load the instructions included in the given file into the
     code memory of the given vm.
 Parameters:
@@ -26,6 +26,6 @@ Parameters:
     p_machine * vm:
         The machine to load instructions into
 */
-void load(char * file_path, p_machine * vm);
+void load_file(char * file_path, p_machine * vm);
 
-#endif /* LOADER_H */
+#endif /* PM0VM_LOADER_H */

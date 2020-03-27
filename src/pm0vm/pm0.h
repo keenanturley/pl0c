@@ -1,5 +1,5 @@
-#ifndef PM0_H
-#define PM0_H
+#ifndef PM0VM_PM0_H
+#define PM0VM_PM0_H
 
 /* Constants */
 #define MAX_STACK_HEIGHT 40
@@ -110,4 +110,4 @@ Returns: p_machine *
 */
 p_machine * destroy(p_machine * vm);
 
-#endif /* PM0_H */
+#endif /* PM0VM_PM0_H */
