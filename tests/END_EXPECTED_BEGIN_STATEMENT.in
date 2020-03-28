@@ -4,3 +4,4 @@ var i,x,y,z,q,r;
 begin
     x := m;
     y := n;
+.
