@@ -1,4 +1,4 @@
-compile: main.o
+compile: common pm0vm pl0la pl0pcg
 	cd common && $(MAKE)
 	cd pm0vm && $(MAKE)
 	cd pl0la && $(MAKE)
