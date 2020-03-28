@@ -28,7 +28,7 @@ typedef struct token_list_t {
  *
  * Dyanmically allocates and returns a list with the default initial capicity,
  * defined above.
- * The caller should call free_list() when finished with the list.
+ * The caller should call free_token_list() when finished with the list.
  *
  * @return token_list_t* The created list
  */

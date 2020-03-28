@@ -37,7 +37,7 @@ void parse_program(parser_t *parser) {
     );
 
     parse_block(parser);
-    if (current_token(parser)->name != periodsym) {
+    if (current_token(parser)->type != periodsym) {
         error(PERIOD_EXPECTED);
     }
 
@@ -58,7 +58,7 @@ void parse_block(parser_t *parser) {
 }
 
 void parse_const_declaration(parser_t *parser) {
-    if (current_token(parser) == constsym) {
+    if (current_token(parser)->type == constsym) {
         do {
             // Check for identifier
             if (next_token(parser)->type != identsym) {
@@ -387,7 +387,7 @@ void parse_condition(parser_t *parser) {
     } else { // EBNF: expression rel-op expression
         parse_expression(parser);
 
-        token_type rel_op = current_token(parser);
+        token_type rel_op = current_token(parser)->type;
         parse_rel_op(parser);
 
         parse_expression(parser);

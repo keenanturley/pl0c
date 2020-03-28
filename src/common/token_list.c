@@ -49,7 +49,7 @@ token *get_token(token_list_t *l, int i) {
 token_list_t *free_token_list(token_list_t *l) {
     // Free the string inside each token
     for (int i = 0; i < l->size; i++) {
-        token *t = get(l, i);
+        token *t = get_token(l, i);
         free(t->name);
     }
     // Free the tokens array

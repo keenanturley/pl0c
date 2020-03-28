@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
         print_assembly(&(parser.code_generator));
 
     // Free the token list
-    free_list(tl);
+    tl = free_token_list(tl);
 
     // ---- Virtual Machine ----
     p_machine *vm = create_machine();
