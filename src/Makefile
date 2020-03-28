@@ -11,4 +11,5 @@ main.o : common pm0vm pl0la pl0pcg main.c
 	gcc -c main.c
 
 clean :
-	rm -f *.o && cd pm0vm && make clean && cd ../pl0la && make clean && cd ../pl0la && make clean && cd ../pl0pcg && make clean
+	rm -f *.o && cd pm0vm && make clean && cd ../pl0la && make clean && \
+	cd ../pl0la && make clean && cd ../pl0pcg && make clean && cd ../common && make clean
