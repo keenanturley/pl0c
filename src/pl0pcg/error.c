@@ -33,6 +33,6 @@ char *error_type_strings[] = {
 };
 
 void error(error_type e) {
-    fprintf(stderr, "Error: %s\n", error_type_strings[e]);
+    fprintf(stdout, "Error: %s\n", error_type_strings[e]);
     exit(e);
 }
