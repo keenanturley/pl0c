@@ -1,4 +1,4 @@
-const p;
+const p = 5;
 var x, w;
 begin
    x:= 4;
