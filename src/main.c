@@ -1,9 +1,12 @@
+#include "common/token_list.h"
+#include "common/token.h"
+
 #include "pl0la/scanner.h"
 #include "pl0la/util.h"
 
 #include "pl0pcg/parser.h"
 
-#include "common/token_list.h"
+
 
 #include "pm0vm/pm0.h"
 
