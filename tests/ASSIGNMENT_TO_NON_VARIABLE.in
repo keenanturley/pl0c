@@ -1,11 +1,4 @@
 const p = 7;
-var x, w;
 begin
-   x:= 4;
-   w:= 7;
-   if w > x then
-	w:= w + 1
-   else
-	w:= x;
-    p:= x;
-end
+   p := 10;
+end.
