@@ -3,7 +3,6 @@ begin
    x:= 4;
    w:= 7;
    if w 7 x then
-	w:= w + 1
-   else
+	w:= w + 1;
 	w:= x;
 end
