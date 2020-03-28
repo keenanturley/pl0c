@@ -58,7 +58,7 @@ void ensure_capacity(token_list_t *l);
  * @param l The list to add to
  * @param t The token to add
  */
-void add_token(token_list_t *l, token_list_t t);
+void add_token(token_list_t *l, token t);
 
 /**
  * @brief Returns the token at index i in the list

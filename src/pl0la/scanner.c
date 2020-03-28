@@ -11,12 +11,12 @@
 
 token_list_t * tokenize(char * file_path){
     FILE * fp = fopen(file_path, "r");
-    token_list_t * tokenList = create_list();
+    token_list_t * tokenList = create_token_list();
 
     while (skipWhiteSpace(fp) || skipComments(fp)); // Skips white space and comments
 
     while (fpeek(fp) != EOF){ // Continue to add tokens til end of file
-        add(tokenList, nextToken(fp)); 
+        add_token(tokenList, nextToken(fp)); 
         while (skipWhiteSpace(fp) || skipComments(fp)); // Skips white space and comments
     } 
 
@@ -44,7 +44,7 @@ token nextToken(FILE * fp){
         } while (isalpha(next) || isdigit(next));
 
         tokenName[i] = '\0';
-        nextToken.type = evaluate_token_type(tokenName);
+        nextToken.type = string_to_token(tokenName);
         nextToken.name = strdup(tokenName);
         return nextToken;
     }

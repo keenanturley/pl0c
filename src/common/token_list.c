@@ -34,14 +34,14 @@ void ensure_capacity(token_list_t *l) {
     }
 }
 
-void add(token_list_t *l, token t) {
+void add_token(token_list_t *l, token t) {
     ensure_capacity(l);
 
     l->tokens[l->size] = t;
     l->size++;
 }
 
-token *get(token_list_t *l, int i) {
+token *get_token(token_list_t *l, int i) {
     if (i < 0 || i >= l->size) return NULL; // Invalid index
     return &(l->tokens[i]);
 }
