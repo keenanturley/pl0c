@@ -21,14 +21,14 @@ void add_code(parser_t *parser, cg_instruction *i) {
 
 token *current_token(parser_t *parser) {
     if (parser->token_cursor >= parser->token_list->size) {
-        error(UNEXEPECTED_END_OF_PROGRAM);
+        error(PERIOD_EXPECTED);
     }
     return get_token(parser->token_list, parser->token_cursor);
 }
 
 token *next_token(parser_t *parser) {
     if (parser->token_cursor >= parser->token_list->size) {
-        error(UNEXEPECTED_END_OF_PROGRAM);
+        error(PERIOD_EXPECTED);
     }
     return get_token(parser->token_list, ++(parser->token_cursor));
 }
