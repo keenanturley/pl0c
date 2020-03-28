@@ -13,7 +13,7 @@ cg_instruction create_instruction(opcode op, int r, int l, int m) {
 void emit_instruction(code_generator_t *generator, opcode op, int r, int l, 
     int m) {
     // Throw an error and exit if we've went over our maximum code length
-    if (generator->code_size == MAX_CODE_LENGTH) error(25);
+    if (generator->code_size == MAX_CODE_LENGTH) error(EXCEEDED_MAX_CODE_LENGTH);
 
     // Otherwise, put this instruction in the code generator
     cg_instruction *i = &(generator->code[generator->code_size]);
