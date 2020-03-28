@@ -6,9 +6,8 @@
 
 #include "pl0pcg/parser.h"
 
-
-
 #include "pm0vm/pm0.h"
+#include "pm0vm/debug.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,7 +15,6 @@
 #include <stdbool.h>
 
 void print_usage();
-void print_assembly(code_generator_t *cg);
 void import_code(p_machine *vm, code_generator_t *cg);
 
 int main(int argc, char *argv[])
@@ -85,9 +83,6 @@ int main(int argc, char *argv[])
 
     printf("No errors, program is syntactically correct\n");
 
-    if (print_code) 
-        print_assembly(&(parser.code_generator));
-
     // Free the token list
     tl = free_token_list(tl);
 
@@ -99,6 +94,9 @@ int main(int argc, char *argv[])
 
     // Import the codegen code into the vm
     import_code(vm, &(parser.code_generator));
+    
+    if (print_code) 
+        print_assembly(vm);
 
     // Run the machine until halt
     run(vm);
@@ -114,16 +112,6 @@ void print_usage() {
     fprintf(stderr, "    -l : Print lexeme list\n");
     fprintf(stderr, "    -a : Print generated assembly code\n");
     fprintf(stderr, "    -v : Print virtual machine execution\n");
-}
-
-void print_assembly(code_generator_t *cg) {
-    printf("Assembly Code:\n");
-    for (int i = 0; i < cg->code_size; i++) {
-        cg_instruction *inst = &(cg->code[i]);
-        printf("%d %d %d %d\n", inst->op, inst->regiser_num, inst->lex_level, 
-            inst->modifier);
-    }
-    printf("\n");
 }
 
 void import_code(p_machine *vm, code_generator_t *cg) {
