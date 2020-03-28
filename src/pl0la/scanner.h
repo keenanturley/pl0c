@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "../common/token.h"
+#include "../common/token_list.h"
 
 /**
  * @file scanner.h
@@ -17,7 +18,7 @@
 
 /**
  * @brief Tokenize input file
- * @return list* of all tokens
+ * @return token_list* of all tokens
  */
 token_list_t * tokenize(char * file_path);
 

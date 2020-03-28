@@ -1,9 +1,9 @@
 #include "pl0la/scanner.h"
-#include "pl0la/list.h"
 #include "pl0la/util.h"
 
 #include "pl0pcg/parser.h"
-#include "pl0pcg/token_list.h"
+
+#include "common/token_list.h"
 
 #include "pm0vm/pm0.h"
 
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
     char *file_path = argv[argc - 1];
     
     // ---- Lexical Analyzer ----
-    list * tl = tokenize(file_path);
+    token_list_t * tl = tokenize(file_path);
 
     if (print_lexemes) {
         // Print out lexeme list
@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
     
     // Casting token list (DANGEROUS PROBABLY SHOULD BE AVOIDED)
     // Possible fix: create a common token_list structure
-    init_parser(&parser, (token_list_t *)tl);
+    init_parser(&parser, tl);
 
     // Parse the program
     parse_program(&parser);

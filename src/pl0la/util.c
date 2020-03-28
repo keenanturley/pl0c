@@ -33,14 +33,14 @@ void print_lexeme_table(token_list_t *l) {
     // Headers
     printf("%-11s    %s\n", "lexeme", "token type");
     for (int i = 0; i < l->size; i++) {
-        token *t = get(l, i);
+        token *t = get_token(l, i);
         printf("%-11s    %d\n", t->name, t->type);
     }
 }
 
 void print_lexeme_list(token_list_t *l) {
     for (int i = 0; i < l->size; i++) {
-        token *t = get(l, i);
+        token *t = get_token(l, i);
         printf("%d ", t->type);
         if (t->type == identsym) {
             printf("%s ", t->name);
@@ -54,7 +54,7 @@ void print_lexeme_list(token_list_t *l) {
 
 void print_lexeme_list_symbolic(token_list_t *l) {
     for (int i = 0; i < l->size; i++) {
-        token *t = get(l, i);
+        token *t = get_token(l, i);
         printf("%s ", token_to_string(t->type));
         if (t->type == identsym) {
             printf("%s ", t->name);
