@@ -1,9 +1,7 @@
-var x, w;
+var a, b, c;
 begin
-   x:= 4;
-   w:= 7;
-   if w > x then
-	w:= w + 1
-   else
-	w:= x;
-end
+   a := 2;
+   b := 3;
+   c := a + b;
+   write c;
+end.
