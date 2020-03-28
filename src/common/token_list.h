@@ -1,5 +1,5 @@
-#ifndef PL0PCG_TOKEN_LIST_H
-#define PL0PCG_TOKEN_LIST_H
+#ifndef COMMON_TOKEN_LIST_H
+#define COMMON_TOKEN_LIST_H
 
 /**
  * @file token_list.h
@@ -77,4 +77,4 @@ token *get_token(token_list_t *l, int i);
  */
 token_list_t *free_token_list(token_list_t *l);
 
-#endif /* PL0PCG_TOKEN_LIST_H */
+#endif /* COMMON_TOKEN_LIST_H */

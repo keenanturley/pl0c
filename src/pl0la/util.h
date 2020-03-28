@@ -8,7 +8,7 @@
  *
  */
 
-#include "list.h"
+#include "../common/token_list.h"
 
 /**
  * @brief Prints a file to stdout
@@ -27,7 +27,7 @@ void print_file(char *file_path);
  *
  * @param l A pointer to the list of tokens to print
  */
-void print_lexeme_table(list *l);
+void print_lexeme_table(token_list_t *l);
 
 /**
  * @brief Prints a list of lexeme types and names
@@ -37,8 +37,8 @@ void print_lexeme_table(list *l);
  *
  * @param l A pointer to the list of tokens to print
  */
-void print_lexeme_list(list *l);
+void print_lexeme_list(token_list_t *l);
 
-void print_lexeme_list_symbolic(list *l);
+void print_lexeme_list_symbolic(token_list_t *l);
 
 #endif /* PL0LA_UTIL_H */

@@ -1,15 +1,17 @@
+#include "scanner.h"
+
+#include "../common/token.h"
+#include "../common/token_list.h"
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include "token.h"
-#include "scanner.h"
-#include "list.h"
 
-list * tokenize(char * file_path){
+token_list_t * tokenize(char * file_path){
     FILE * fp = fopen(file_path, "r");
-    list * tokenList = create_list();
+    token_list_t * tokenList = create_list();
 
     while (skipWhiteSpace(fp) || skipComments(fp)); // Skips white space and comments
 

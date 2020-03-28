@@ -1,9 +1,10 @@
 #ifndef PL0PCG_PARSER_H
 #define PL0PCG_PARSER_H
 
+#include "../common/token_list.h"
+
 #include "symbol.h"
 #include "codegen.h"
-#include "token_list.h"
 
 typedef struct parser_t {
     token_list_t *token_list;

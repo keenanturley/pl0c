@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "util.h"
-#include "list.h"
-#include "token.h"
+#include "../common/token_list.h"
+#include "../common/token.h"
 
 void print_file(char *file_path) {
     // Try to open the file
@@ -29,7 +29,7 @@ void print_file(char *file_path) {
     fclose(fp);
 }
 
-void print_lexeme_table(list *l) {
+void print_lexeme_table(token_list_t *l) {
     // Headers
     printf("%-11s    %s\n", "lexeme", "token type");
     for (int i = 0; i < l->size; i++) {
@@ -38,7 +38,7 @@ void print_lexeme_table(list *l) {
     }
 }
 
-void print_lexeme_list(list *l) {
+void print_lexeme_list(token_list_t *l) {
     for (int i = 0; i < l->size; i++) {
         token *t = get(l, i);
         printf("%d ", t->type);
@@ -52,7 +52,7 @@ void print_lexeme_list(list *l) {
     printf("\n");
 }
 
-void print_lexeme_list_symbolic(list *l) {
+void print_lexeme_list_symbolic(token_list_t *l) {
     for (int i = 0; i < l->size; i++) {
         token *t = get(l, i);
         printf("%s ", token_to_string(t->type));

@@ -1,5 +1,5 @@
-#ifndef PL0LA_TOKEN_H
-#define PL0LA_TOKEN_H
+#ifndef COMMON_TOKEN_H
+#define COMMON_TOKEN_H
 
 /* Token Types */
 typedef enum token_type { nulsym = 1, identsym, numbersym, plussym, minussym,
@@ -25,7 +25,7 @@ typedef struct token {
  * @param str The string representation of the token
  * @return token_type The token type of the string
  */
-token_type evaluate_token_type(char *str);
+token_type string_to_token(char *str);
 
 /**
  * @brief Returns string representation of given token
@@ -35,4 +35,4 @@ token_type evaluate_token_type(char *str);
  */
 char *token_to_string(token_type token);
 
-#endif /* PL0LA_TOKEN_H */
+#endif /* COMMON_TOKEN_H */

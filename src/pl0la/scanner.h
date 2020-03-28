@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
-#include "list.h"
+#include "../common/token.h"
 
 /**
  * @file scanner.h
@@ -19,7 +19,7 @@
  * @brief Tokenize input file
  * @return list* of all tokens
  */
-list * tokenize(char * file_path);
+token_list_t * tokenize(char * file_path);
 
 /**
  * @brief Gets next token from input file and determines its type
