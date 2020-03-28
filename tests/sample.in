@@ -1,0 +1,14 @@
+const age = 21, two = 2;
+var elephant, dog, rat, temp;
+begin
+   temp := age / 2;
+   write temp;
+   elephant := 100;
+   rat := 10000;
+   temp := 0;
+   if rat > elephant then
+      temp := 1;
+   write temp;
+   temp := (rat * 2) + (age * two);
+   write temp;
+end.
