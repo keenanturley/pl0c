@@ -4,7 +4,6 @@ begin
    w:= 7;
    if w > x then
 	w:= w + 1;
-   else
-	w:= x;
+	x:= w;
     read 7;
 end
