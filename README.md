@@ -39,6 +39,10 @@ Where `file-path` is the path to the source file you want to compile.
 
 ## Notes To the TA
 
+- The test cases are in the `tests` directory
+    - The sample.in / sample.out test case is the valid case.
+    - All other cases correspond to errors
+
 - Output is printed to stdout, which should be redirected if a test case output file is desired.
 
 - If an error is encountered, a description of the error is printed to stderr and the program immediately exits
