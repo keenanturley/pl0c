@@ -23,24 +23,30 @@ symbol create_symbol(kind_type kind, char name[12], int value, int level,
 symbol create_const_symbol(char name[12], int value) {
     symbol s = {
         KIND_CONST,     // Kind
-        name,           // Name
+        NULL,           // Name
         value,          // Value
         0,              // Level 
         0,              // Address
         MARK_VALID      // Mark
     };
+
+    // Copy the name into the structure
+    memcpy(s.name, name, sizeof(char) * 12);
     return s;
 }
 
 symbol create_var_symbol(char name[12]) {
     symbol s = {
         KIND_VAR,       // Kind
-        name,           // Name
+        NULL,           // Name
         0,              // Value
         0,              // Level 
         0,              // Address
         MARK_VALID      // Mark
     };
+    
+    // Copy the name into the structure
+    memcpy(s.name, name, sizeof(char) * 12);
     return s;
 }
 
