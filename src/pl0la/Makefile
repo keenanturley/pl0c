@@ -1,15 +1,15 @@
-pl0la : util.o list.o token.o scanner.o
+pl0la : util.o token_list.o token.o scanner.o
 
-util.o : util.c util.h list.h
+util.o : util.c util.h token_list.o
 	gcc -c util.c
 
-list.o : list.c list.h token.h
-	gcc -c list.c
+token_list.o : ../common/token_list.c ../common/token_list.h ../common/token.h
+	cd ../common && $(MAKE)
 
-token.o : token.c token.h
-	gcc -c token.c
+token.o : ../common/token.c ../common/token.h
+	cd ../common && $(MAKE)
 
-scanner.o : scanner.c scanner.h token.h list.h
+scanner.o : scanner.c scanner.h token.o token_list.o
 	gcc -c scanner.c
 
 clean:

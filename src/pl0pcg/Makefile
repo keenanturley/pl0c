@@ -6,11 +6,11 @@ parser.o : parser.c parser.h symbol.h codegen.h error.h
 symbol.o : symbol.c symbol.h
 	gcc -c symbol.c
 
-token_list.o : token_list.c token_list.h token.h
-	gcc -c token_list.c
+token_list.o : ../common/token_list.c ../common/token_list.h ../common/token.h
+	cd ../common && $(MAKE)
 
-token.o : token.c token.h
-	gcc -c token.c
+token.o : ../common/token.c ../common/token.h
+	cd ../common && $(MAKE)
 
 codegen.o : codegen.c codegen.h error.h
 	gcc -c codegen.c
