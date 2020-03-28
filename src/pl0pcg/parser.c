@@ -5,6 +5,7 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 void init_parser(parser_t *parser, token_list_t *token_list) {
     parser->token_list = token_list;
@@ -194,9 +195,13 @@ void parse_statement(parser_t *parser) {
         // Consume begin
         next_token(parser);
 
-        do {
+        parse_statement(parser);
+        
+        while(current_token(parser)->type == semicolonsym) {
+            // Consume semicolon
+            next_token(parser);
             parse_statement(parser);
-        } while (next_token(parser)->type == semicolonsym);
+        }
 
         if (current_token(parser)->type != endsym) {
             error(END_EXPECTED_BEGIN_STATEMENT);
@@ -571,6 +576,9 @@ void parse_factor(parser_t *parser) {
         else {
             error(NON_VAR_CONST_IDENTIFIER_FACTOR);
         }
+
+        // Consume identifier
+        next_token(parser);
     } 
     // EBNF: number
     else if (current_token(parser)->type == numbersym) {
@@ -581,6 +589,8 @@ void parse_factor(parser_t *parser) {
             0,
             atoi(current_token(parser)->name)
         );
+        // Consume number
+        next_token(parser);
     }
     // EBNF: "(" expression ")"
     else if (current_token(parser)->type == lparentsym) {

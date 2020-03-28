@@ -68,6 +68,7 @@ int main(int argc, char *argv[])
 
         printf("Lexeme List (Symbolic Representation):\n");
         print_lexeme_list_symbolic(tl);
+        printf("\n");
     }
 
     // ---- Parser + Code Generator ----
@@ -81,7 +82,7 @@ int main(int argc, char *argv[])
     // Parse the program
     parse_program(&parser);
 
-    printf("No errors, program is syntactically correct\n");
+    printf("No errors, program is syntactically correct\n\n");
 
     // Free the token list
     tl = free_token_list(tl);
@@ -95,8 +96,11 @@ int main(int argc, char *argv[])
     // Import the codegen code into the vm
     import_code(vm, &(parser.code_generator));
     
-    if (print_code) 
+    if (print_code) {
+        printf("Assembly Code:\n");
         print_assembly(vm);
+    }
+        
 
     // Run the machine until halt
     run(vm);

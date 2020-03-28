@@ -47,7 +47,7 @@ void insert_symbol(symbol_table_t *table, symbol *sym) {
     // Grab the address of the destination symbol from the table
     symbol *s = &(table->symbols[table->num_symbols]);
 
-    if (s->kind == KIND_VAR)
+    if (sym->kind == KIND_VAR)
         sym->address = (table->var_address_index)++;
 
     // Copy the contents of the passed in symbol to the destination
