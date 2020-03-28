@@ -1,3 +1,5 @@
+pl0pcg : parser.o symbol.o token_list.o token.o codegen.o error.o
+
 parser.o : parser.c parser.h symbol.h codegen.h error.h
 	gcc -c parser.c
 

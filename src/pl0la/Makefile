@@ -1,3 +1,5 @@
+pl0la : util.o list.o token.o scanner.o
+
 util.o : util.c util.h list.h
 	gcc -c util.c
 

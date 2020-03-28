@@ -1,3 +1,5 @@
+pm0vm : pm0.o loader.o debug.o
+
 pm0.o : pm0.c pm0.h debug.h
 	gcc -c pm0.c
 
