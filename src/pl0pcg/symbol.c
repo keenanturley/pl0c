@@ -9,44 +9,37 @@ void init_symbol_table(symbol_table_t *table) {
 
 symbol create_symbol(kind_type kind, char name[12], int value, int level,
     int address, mark_type mark) {
-    symbol s = {
-        kind,
-        name,
-        value,
-        level,
-        address,
-        mark
-    };
+    symbol s;
+    s.kind = kind;
+    memcpy(s.name, name, sizeof(char) * 12);
+    s.value = value;
+    s.level = level;
+    s.address = address;
+    s.mark = mark;
     return s;
 }
 
 symbol create_const_symbol(char name[12], int value) {
-    symbol s = {
-        KIND_CONST,     // Kind
-        NULL,           // Name
-        value,          // Value
-        0,              // Level 
-        0,              // Address
-        MARK_VALID      // Mark
-    };
-
-    // Copy the name into the structure
+    symbol s;
+    s.kind = KIND_CONST;
     memcpy(s.name, name, sizeof(char) * 12);
+    s.value = value;
+    s.level = 0;
+    s.address = 0;
+    s.mark = MARK_VALID;
+
     return s;
 }
 
 symbol create_var_symbol(char name[12]) {
-    symbol s = {
-        KIND_VAR,       // Kind
-        NULL,           // Name
-        0,              // Value
-        0,              // Level 
-        0,              // Address
-        MARK_VALID      // Mark
-    };
-    
-    // Copy the name into the structure
+    symbol s;
+    s.kind = KIND_VAR;
     memcpy(s.name, name, sizeof(char) * 12);
+    s.value = 0;
+    s.level = 0;
+    s.address = 0;
+    s.mark = MARK_VALID;
+    
     return s;
 }
 
