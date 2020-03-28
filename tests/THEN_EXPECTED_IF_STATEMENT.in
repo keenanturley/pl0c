@@ -4,6 +4,5 @@ begin
    w:= 7;
    if w > x
 	w:= w + 1;
-   else
 	w:= x; 
-end
+end.
