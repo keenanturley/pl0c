@@ -5,7 +5,7 @@
 
 char *error_type_strings[] = { 
     "",
-    "Unexpected end of program, period should indicate terminate program.",
+    "Unexpected end of program, period should indicate program termination.",
     "Identifier expected in const declaration.",
     "Equals sign must follow identifier in const declaration.",
     "Number must follow equals sign in const declaration.",
