@@ -7,10 +7,10 @@ symbol.o : symbol.c symbol.h
 	gcc -c symbol.c
 
 token_list.o : ../common/token_list.c ../common/token_list.h ../common/token.h
-	cd ../common && $(MAKE)
+	$(MAKE) -C ../common
 
 token.o : ../common/token.c ../common/token.h
-	cd ../common && $(MAKE)
+	$(MAKE) -C ../common
 
 codegen.o : codegen.c codegen.h error.h
 	gcc -c codegen.c
