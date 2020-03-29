@@ -1,7 +1,0 @@
-Lexeme List:
-28 9 3 7 17 2 n 9 3 85 18 29 2 i 17 2 x 17 2 y 17 2 z 17 2 q 17 2 r 18 21 2 x 20 2 m 18 2 y 20 2 n 18 22 19 
-
-Lexeme List (Symbolic Representation):
-constsym eqsym numbersym 7 commasym identsym n eqsym numbersym 85 semicolonsym varsym identsym i commasym identsym x commasym identsym y commasym identsym z commasym identsym q commasym identsym r semicolonsym beginsym identsym x becomessym identsym m semicolonsym identsym y becomessym identsym n semicolonsym endsym periodsym 
-
-Error: Identifier expected in const declaration.

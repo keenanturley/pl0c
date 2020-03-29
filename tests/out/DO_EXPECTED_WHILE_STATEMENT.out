@@ -1,7 +1,0 @@
-Lexeme List:
-29 2 x 17 2 w 18 21 2 x 20 3 4 18 2 w 20 3 7 18 25 2 w 13 2 x 2 w 20 2 w 5 3 1 18 22 
-
-Lexeme List (Symbolic Representation):
-varsym identsym x commasym identsym w semicolonsym beginsym identsym x becomessym numbersym 4 semicolonsym identsym w becomessym numbersym 7 semicolonsym whilesym identsym w gtrsym identsym x identsym w becomessym identsym w minussym numbersym 1 semicolonsym endsym 
-
-Error: Do keyword expected following while statement.
