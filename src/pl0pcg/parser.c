@@ -21,14 +21,14 @@ void add_code(parser_t *parser, cg_instruction *i) {
 
 token *current_token(parser_t *parser) {
     if (parser->token_cursor >= parser->token_list->size) {
-        error(PERIOD_EXPECTED);
+        error(UNEXPECTED_END_OF_PROGRAM);
     }
     return get_token(parser->token_list, parser->token_cursor);
 }
 
 token *next_token(parser_t *parser) {
     if (parser->token_cursor >= parser->token_list->size) {
-        error(PERIOD_EXPECTED);
+        error(UNEXPECTED_END_OF_PROGRAM);
     }
     return get_token(parser->token_list, ++(parser->token_cursor));
 }
@@ -45,7 +45,7 @@ void parse_program(parser_t *parser) {
 
     parse_block(parser);
     if (current_token(parser)->type != periodsym) {
-        error(PERIOD_EXPECTED);
+        error(UNEXPECTED_END_OF_PROGRAM);
     }
 
     // End of program instruction
