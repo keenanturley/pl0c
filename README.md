@@ -49,7 +49,11 @@ Where `file-path` is the path to the source file you want to compile.
 
   - The test script `run_tests.sh` is provided for your convinience in the root directory.
 
-    - This generates a `.out` file for each `.in` file in the `tests` directory
+    - This generates a `.out` file for each `.in` file in the `tests` directory by running the command:
+
+        ```bash
+        ./src/compile -l -a -v ./tests/in/$TEST_NAME.in > ./tests/out/$TEST_NAME.out
+        ```
 
 - Output is printed to `stdout`, which should be redirected if a test case output file is desired.
 
