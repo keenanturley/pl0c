@@ -39,10 +39,20 @@ Where `file-path` is the path to the source file you want to compile.
 
 ## Notes To the TA
 
-- The test cases are in the `tests` directory
-    - The sample.in / sample.out test case is the valid case.
-    - All other cases correspond to errors
+- The test cases are in the `tests` directory, with inputs and outputes being in the `in` and `out` folders, respectively
 
-- Output is printed to stdout, which should be redirected if a test case output file is desired.
+  - Each test case output is run with all flags enabled
 
-- If an error is encountered, a description of the error is printed to stderr and the program immediately exits
+  - The files prefixed with `sample` are input and output of a valid test case.
+
+  - All other cases correspond to errors
+
+  - The test script `run_tests.sh` is provided for your convinience in the root directory.
+
+    - This generates a `.out` file for each `.in` file in the `tests` directory
+
+- Output is printed to `stdout`, which should be redirected if a test case output file is desired.
+
+- If an error is encountered, a description of the error is printed to `stdout` and the program immediately exits
+
+  - `stderr` is not used for this because the test case output must include the error, which cannot be redirected to a file from the shell
