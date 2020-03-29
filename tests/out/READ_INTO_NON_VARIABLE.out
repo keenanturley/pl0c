@@ -1,0 +1,7 @@
+Lexeme List:
+28 2 p 9 3 5 18 29 2 x 17 2 w 18 21 2 x 20 3 4 18 2 w 20 3 7 18 23 2 w 13 2 x 24 2 w 20 2 w 4 3 1 18 2 w 20 2 x 18 32 2 p 18 22 
+
+Lexeme List (Symbolic Representation):
+constsym identsym p eqsym numbersym 5 semicolonsym varsym identsym x commasym identsym w semicolonsym beginsym identsym x becomessym numbersym 4 semicolonsym identsym w becomessym numbersym 7 semicolonsym ifsym identsym w gtrsym identsym x thensym identsym w becomessym identsym w plussym numbersym 1 semicolonsym identsym w becomessym identsym x semicolonsym readsym identsym p semicolonsym endsym 
+
+Error: Attempted to read value into a non-variable identifier

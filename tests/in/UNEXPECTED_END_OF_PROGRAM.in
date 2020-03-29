@@ -1,3 +1,5 @@
-Unstaged changes after reset:
-D	tests/in/PERIOD_EXPECTED.in
-M	tests/in/UNEXPECTED_END_OF_PROGRAM.in
+var x, y;
+begin
+    x := 5;
+    write x;
+    y := (2 + 

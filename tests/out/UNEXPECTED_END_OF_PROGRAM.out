@@ -1,0 +1,7 @@
+Lexeme List:
+29 2 x 17 2 y 18 21 2 x 20 3 5 18 31 2 x 18 2 y 20 15 3 2 4 
+
+Lexeme List (Symbolic Representation):
+varsym identsym x commasym identsym y semicolonsym beginsym identsym x becomessym numbersym 5 semicolonsym writesym identsym x semicolonsym identsym y becomessym lparentsym numbersym 2 plussym 
+
+Error: Unexpected end of program, period should indicate terminate program.
