@@ -1,5 +1,0 @@
-var x, y;
-begin	
-  y := 27;
-  x := y + 56;
-end 

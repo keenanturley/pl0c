@@ -1,5 +1,5 @@
 ./compile -l -a -v ../tests/in/sample.in > ../tests/out/sample.out
-./compile -l -a -v ../tests/in/PERIOD_EXPECTED.in > ../tests/out/PERIOD_EXPECTED.out
+./compile -l -a -v ../tests/in/UNEXPECTED_END_OF_PROGRAM.in > ../tests/out/UNEXPECTED_END_OF_PROGRAM.out
 ./compile -l -a -v ../tests/in/IDENTIFIER_EXPECTED_CONST_DECLARATION.in > ../tests/out/IDENTIFIER_EXPECTED_CONST_DECLARATION.out
 ./compile -l -a -v ../tests/in/EQUALS_EXPECTED_CONST_DECLARATION.in > ../tests/out/EQUALS_EXPECTED_CONST_DECLARATION.out
 ./compile -l -a -v ../tests/in/NUMBER_EXPECTED_CONST_DECLARATION.in > ../tests/out/NUMBER_EXPECTED_CONST_DECLARATION.out

@@ -1,0 +1,3 @@
+Unstaged changes after reset:
+D	tests/in/PERIOD_EXPECTED.in
+M	tests/in/UNEXPECTED_END_OF_PROGRAM.in
