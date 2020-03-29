@@ -1,0 +1,7 @@
+Lexeme List:
+29 2 x 17 2 w 18 21 2 x 20 3 4 18 2 w 20 3 7 18 23 2 w 13 15 2 x 4 3 7 24 2 w 20 2 w 4 3 1 18 2 w 20 2 x 18 22 19 
+
+Lexeme List (Symbolic Representation):
+varsym identsym x commasym identsym w semicolonsym beginsym identsym x becomessym numbersym 4 semicolonsym identsym w becomessym numbersym 7 semicolonsym ifsym identsym w gtrsym lparentsym identsym x plussym numbersym 7 thensym identsym w becomessym identsym w plussym numbersym 1 semicolonsym identsym w becomessym identsym x semicolonsym endsym periodsym 
+
+Error: Right parenthesis expected to close currently opened expression factor.

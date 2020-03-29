@@ -1,0 +1,7 @@
+Lexeme List:
+28 2 p 9 3 7 18 21 2 p 20 3 10 18 22 19 
+
+Lexeme List (Symbolic Representation):
+constsym identsym p eqsym numbersym 7 semicolonsym beginsym identsym p becomessym numbersym 10 semicolonsym endsym periodsym 
+
+Error: Attempted to assign value to non-variable identifier.

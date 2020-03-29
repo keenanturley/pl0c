@@ -1,0 +1,7 @@
+Lexeme List:
+29 2 x 17 2 y 18 21 2 y 20 3 27 18 2 x 20 2 y 4 3 56 18 22 
+
+Lexeme List (Symbolic Representation):
+varsym identsym x commasym identsym y semicolonsym beginsym identsym y becomessym numbersym 27 semicolonsym identsym x becomessym identsym y plussym numbersym 56 semicolonsym endsym 
+
+Error: Period expected.
