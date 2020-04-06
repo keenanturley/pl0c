@@ -38,11 +38,26 @@ void execute(p_machine * vm) {
         case 1: // LIT - load immediate to register
             vm->RF[i->r] = i->m;
             break;
+        case 2: // RTN - return from subroutine
+            vm->SP = vm->BP - 1;
+            vm->AR[vm->BP] = 0;
+            vm->BP = vm->stack[vm->SP + 3];
+            vm->PC = vm->stack[vm->SP + 4];
+            break;
         case 3: // LOD - load value into register from stack
             vm->RF[i->r] = vm->stack[base(vm, i->l) + i->m];
             break;
         case 4: // STO - store value from register in stack
             vm->stack[base(vm, i->l) + i->m] = vm->RF[i->r];
+            break;
+        case 5: // CAL - call procedure at m
+            vm->stack[vm->SP + 1] = 0; // return value
+            vm->stack[vm->SP + 2] = base(vm, i->l);
+            vm->stack[vm->SP + 3] = vm->BP;
+            vm->stack[vm->SP + 4] = vm->PC;
+            vm->BP = vm->SP + 1;
+            vm->AR[vm->BP] = 1; // Activation record border at index vm->BP
+            vm->PC = i->m;
             break;
         case 6: // INC - increment SP by M (allocating locals)
             vm->SP = vm->SP + i->m;
