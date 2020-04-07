@@ -11,6 +11,12 @@
 
 token_list_t * tokenize(char * file_path){
     FILE * fp = fopen(file_path, "r");
+
+    if (fp == NULL) {
+        printf("Error opening file. Exiting...\n");
+        exit(EXIT_FAILURE);
+    }
+    
     token_list_t * tokenList = create_token_list();
 
     while (skipWhiteSpace(fp) || skipComments(fp)); // Skips white space and comments
