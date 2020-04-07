@@ -7,8 +7,8 @@ char *token_type_strings[] = {
     "multsym", "slashsym", "oddsym", "eqsym", "neqsym", "lessym", 
     "leqsym", "gtrsym", "geqsym", "lparentsym", "rparentsym", "commasym", 
     "semicolonsym", "periodsym", "becomessym", "beginsym", "endsym", 
-    "ifsym", "thensym", "whilesym", "dosym", "", "constsym", "varsym", "",
-    "writesym", "readsym"
+    "ifsym", "thensym", "whilesym", "dosym", "callsym", "constsym", "varsym", "procsym",
+    "writesym", "readsym", "elsesym"
 };
 
 token_type string_to_token(char *str) {
@@ -47,6 +47,15 @@ token_type string_to_token(char *str) {
     }
     if (strcmp(str, "odd") == 0) {
         return oddsym;
+    }
+    if (strcmp(str, "call") == 0) {
+        return callsym;
+    }
+    if (strcmp(str, "procedure") == 0) {
+        return procsym;
+    }
+    if (strcmp(str, "else") == 0) {
+        return elsesym;
     }
     return identsym;
 }
