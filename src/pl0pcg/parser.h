@@ -103,7 +103,7 @@ void parse_var_declaration(parser_t *parser);
  * 
  * @param parser Pointer to the parser containing the tokens to parse
  */
-void parse_proc_declaration(parser_t *parser)
+void parse_proc_declaration(parser_t *parser);
 
 /**
  * @brief Parse a statement
