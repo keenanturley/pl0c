@@ -61,6 +61,7 @@ void parse_program(parser_t *parser) {
 void parse_block(parser_t *parser) {
     parse_const_declaration(parser);
     parse_var_declaration(parser);
+    parse_proc_declaration(parser);
     parse_statement(parser);
 }
 
@@ -155,6 +156,42 @@ void parse_var_declaration(parser_t *parser) {
         }
 
         // Consume semicolon
+        next_token(parser);
+    }
+}
+
+void parse_proc_declaration(parser_t *parser){
+    while (current_token(parser)->type == procsym){
+    
+        // Check for identifier
+        if (next_token(parser)->type != identsym) {
+            error(IDENTIFIER_EXPECTED_VAR_DECLARATION);
+        }
+        
+        // Identifier must not be already declared on the same level
+        symbol *present = search_symbol(
+            &(parser->symbol_table),
+            current_token(parser)->name
+        );
+
+        if (present != NULL) {
+            error(IDENTIFIER_ALREADY_DECLARED);
+        }
+
+        // Create and insert procedure symbol TODO: change to create_proc_symbol
+        symbol s = create_var_symbol(current_token(parser)->name);
+        insert_symbol(&(parser->symbol_table), &s);
+
+        if (next_token(parser)->type != semicolonsym) {
+            error(SEMICOLON_EXPECTED_CONST_DECLARATION);
+        }
+
+        parse_block(parser);
+
+        if (current_token(parser)->type != semicolonsym) {
+            error(SEMICOLON_EXPECTED_CONST_DECLARATION);
+        }
+
         next_token(parser);
     }
 }
