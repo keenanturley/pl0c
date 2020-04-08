@@ -4,3 +4,6 @@ a.out
 
 # Main executable
 src/compile
+
+# txt readme
+readme.txt
