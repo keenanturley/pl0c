@@ -43,6 +43,18 @@ symbol create_var_symbol(char name[12]) {
     return s;
 }
 
+symbol create_proc_symbol(char name[12], int level) {
+    symbol s;
+    s.kind = KIND_PROC;
+    memcpy(s.name, name, sizeof(char) * 12);
+    s.value = 0;
+    s.level = level;
+    s.address = 0;
+    s.mark = MARK_VALID;
+    
+    return s;
+}
+
 void insert_symbol(symbol_table_t *table, symbol *sym) {
     // Grab the address of the destination symbol from the table
     symbol *s = &(table->symbols[table->num_symbols]);

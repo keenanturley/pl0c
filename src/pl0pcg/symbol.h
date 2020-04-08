@@ -7,8 +7,9 @@
  * @brief Kind of symbol
  */
 typedef enum kind_type {
-    KIND_CONST = 1, // Const symbol
-    KIND_VAR = 2    // Var symbol
+    KIND_CONST = 1,     // Const symbol
+    KIND_VAR = 2,       // Var symbol
+    KIND_PROC = 3       // Procedure symbol
 } kind_type;
 
 /**
@@ -89,6 +90,15 @@ symbol create_const_symbol(char name[12], int value);
  * @return symbol The created symbol
  */
 symbol create_var_symbol(char name[12]);
+
+/**
+ * @brief Create a procedure symbol
+ * 
+ * @param name Name of the identifier
+ * @param level Lexigraphical level of this procedure
+ * @return symbol The created symbol
+ */
+symbol create_proc_symbol(char name[12], int level);
 
 /**
  * @brief Copies the values from sym into the next available symbol
