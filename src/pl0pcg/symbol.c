@@ -31,7 +31,7 @@ symbol create_const_symbol(char name[12], int value) {
     return s;
 }
 
-symbol create_var_symbol(char name[12]) {
+symbol create_var_symbol(char name[12], int level) {
     symbol s;
     s.kind = KIND_VAR;
     memcpy(s.name, name, sizeof(char) * 12);
@@ -81,4 +81,12 @@ symbol *search_symbol(symbol_table_t *table, char name[12]) {
 
     // Symbol was not found, return NULL
     return NULL;
+}
+
+void invalidate_symbols(symbol_table_t *table, int level) {
+    for (int i = table->num_symbols - 1; i >= 0; --i) {
+        if (table->symbols[i].level >= level) {
+            table->symbols[i].mark = MARK_INVALID;
+        }
+    }
 }

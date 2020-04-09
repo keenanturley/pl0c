@@ -87,9 +87,10 @@ symbol create_const_symbol(char name[12], int value);
  * Note: Variables should not store nor update their value property
  * 
  * @param name Name of the identifier
+ * @param level Level of this variable
  * @return symbol The created symbol
  */
-symbol create_var_symbol(char name[12]);
+symbol create_var_symbol(char name[12], int level);
 
 /**
  * @brief Create a procedure symbol
@@ -119,5 +120,14 @@ void insert_symbol(symbol_table_t *table, symbol *sym);
  * @return symbol* Pointer to the symbol to symbol if found, NULL otherwise
  */
 symbol *search_symbol(symbol_table_t *table, char name[12]);
+
+
+/**
+ * @brief Marks symbols at or above level as invalid
+ * 
+ * @param table Symbol table to use for invalidation
+ * @param level Level to start invalidating
+ */
+void invalidate_symbols(symbol_table_t *table, int level);
 
 #endif /* PL0PCG_SYMBOL_H */

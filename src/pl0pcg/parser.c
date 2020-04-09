@@ -12,6 +12,7 @@ void init_parser(parser_t *parser, token_list_t *token_list) {
     parser->token_cursor = 0;
     init_symbol_table(&(parser->symbol_table));
     parser->register_cursor = 0;
+    parser->current_level = -1;
     init_code_generator(&(parser->code_generator));
 }
 
@@ -59,10 +60,22 @@ void parse_program(parser_t *parser) {
 }
 
 void parse_block(parser_t *parser) {
+    // We entered a new level
+    (parser->current_level)++;
+
     parse_const_declaration(parser);
     parse_var_declaration(parser);
     parse_proc_declaration(parser);
     parse_statement(parser);
+    
+    // Invalidate all symbols in this level or above
+    invalidate_symbols(&(parser->symbol_table), (parser->current_level)++);
+
+    // Reset var address index
+    parser->symbol_table.var_address_index = 4;
+
+    // We are leaving the block
+    (parser->current_level)++;
 }
 
 void parse_const_declaration(parser_t *parser) {
@@ -134,7 +147,7 @@ void parse_var_declaration(parser_t *parser) {
             }
 
             // Create and insert var symbol
-            symbol s = create_var_symbol(current_token(parser)->name);
+            symbol s = create_var_symbol(current_token(parser)->name, parser->current_level);
             insert_symbol(&(parser->symbol_table), &s);
 
             num_vars++;
@@ -165,7 +178,7 @@ void parse_proc_declaration(parser_t *parser){
     
         // Check for identifier
         if (next_token(parser)->type != identsym) {
-            error(IDENTIFIER_EXPECTED_VAR_DECLARATION);
+            error(IDENTIFIER_EXPECTED_PROC_DECLARATION);
         }
         
         // Identifier must not be already declared on the same level
@@ -179,20 +192,30 @@ void parse_proc_declaration(parser_t *parser){
         }
 
         // Create and insert procedure symbol TODO: change to create_proc_symbol
-        symbol s = create_var_symbol(current_token(parser)->name);
+        symbol s = create_proc_symbol(current_token(parser)->name, parser->current_level);
         insert_symbol(&(parser->symbol_table), &s);
 
         if (next_token(parser)->type != semicolonsym) {
-            error(SEMICOLON_EXPECTED_CONST_DECLARATION);
+            error(SEMICOLON_EXPECTED_PROC_DECLARATION);
         }
 
         parse_block(parser);
 
         if (current_token(parser)->type != semicolonsym) {
-            error(SEMICOLON_EXPECTED_CONST_DECLARATION);
+            error(SEMICOLON_EXPECTED_PROC_DECLARATION);
         }
 
+        // Consume semicolon
         next_token(parser);
+
+        // Generate a return instruction
+        emit_instruction(
+            &(parser->code_generator),
+            RTN,
+            0,
+            0,
+            0
+        );
     }
 }
 
@@ -357,7 +380,7 @@ void parse_statement(parser_t *parser) {
             &(parser->code_generator),
             STO,
             parser->register_cursor,
-            s->level,
+            parser->current_level - s->level,
             s->address
         );
 

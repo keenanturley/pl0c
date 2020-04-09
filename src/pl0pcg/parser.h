@@ -11,6 +11,7 @@ typedef struct parser_t {
     int token_cursor;
     symbol_table_t symbol_table;
     int register_cursor;
+    int current_level;
     code_generator_t code_generator;
 } parser_t;
 
