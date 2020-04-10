@@ -158,7 +158,7 @@ int parse_var_declaration(parser_t *parser) {
                 current_token(parser)->name
             );
 
-            if (present != NULL) {
+            if (present != NULL && present->level == parser->current_level) {
                 error(IDENTIFIER_ALREADY_DECLARED);
             }
 
