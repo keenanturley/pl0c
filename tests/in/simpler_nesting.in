@@ -1,0 +1,8 @@
+var x, y;
+procedure a;
+    begin
+        x := 5;
+    end;
+begin
+    call a
+end.

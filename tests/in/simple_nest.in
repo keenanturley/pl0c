@@ -1,0 +1,21 @@
+procedure MAIN2;
+    procedure BIGSUB;
+        procedure SUB1;
+            begin
+            end;
+        procedure SUB2;
+            procedure SUB3;
+                begin
+                    call SUB1;
+                end;
+            begin
+                call SUB3;
+            end;
+        begin
+            call SUB2;
+        end;
+    begin
+        call BIGSUB;
+    end;
+begin
+end.
