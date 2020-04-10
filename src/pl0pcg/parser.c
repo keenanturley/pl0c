@@ -191,7 +191,7 @@ void parse_proc_declaration(parser_t *parser){
             error(IDENTIFIER_ALREADY_DECLARED);
         }
 
-        // Create and insert procedure symbol TODO: change to create_proc_symbol
+        // Create and insert procedure symbol
         symbol s = create_proc_symbol(current_token(parser)->name, parser->current_level);
         insert_symbol(&(parser->symbol_table), &s);
 
@@ -256,7 +256,38 @@ void parse_statement(parser_t *parser) {
 
         // Decrement register cursor as we're done using that value
         (parser->register_cursor)--;
-    } 
+    }
+
+    else if (current_token(parser)->type == callsym) {
+        if (next_token(parser)->type != identsym) {
+            error(IDENTIFIER_EXPECTED_READ_STATEMENT);
+        }
+
+        // Retrieve this identifier's symbol from the table
+        symbol *s = search_symbol(
+            &(parser->symbol_table), 
+            current_token(parser)->name
+        );
+
+        if (s == NULL) {
+            error(1); // TODO: error: procedure does not exist
+        }
+
+        if (s->kind != KIND_PROC) {
+            error(1); // TODO: error: calling non-procedure identifier
+        }
+
+        //generate code for CAL instruction
+                emit_instruction(
+            &(parser->code_generator),
+            CAL,
+            0,
+            parser->current_level - s->level,
+            s->address
+        );
+
+    }
+
     else if (current_token(parser)->type == beginsym) {
         // Consume begin
         next_token(parser);
