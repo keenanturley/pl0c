@@ -54,6 +54,9 @@ void parse_block(parser_t *parser) {
     // We entered a new level
     (parser->current_level)++;
 
+    parse_const_declaration(parser);
+    int num_vars = parse_var_declaration(parser);
+
     // Emit preparatory jump
     int prep_jump_addr = parser->code_generator.code_size;
     emit_instruction(
@@ -64,8 +67,6 @@ void parse_block(parser_t *parser) {
         0
     );
 
-    parse_const_declaration(parser);
-    parse_var_declaration(parser);
     parse_proc_declaration(parser);
 
     // Fill in address to prep jump
@@ -78,19 +79,19 @@ void parse_block(parser_t *parser) {
         INC,
         0,
         0,
-        4
+        4 + num_vars
     );
 
     parse_statement(parser);
     
     // Invalidate all symbols in this level or above
-    invalidate_symbols(&(parser->symbol_table), (parser->current_level)++);
+    invalidate_symbols(&(parser->symbol_table), (parser->current_level));
 
     // Reset var address index
     parser->symbol_table.var_address_index = 4;
 
     // We are leaving the block
-    (parser->current_level)++;
+    (parser->current_level)--;
 }
 
 void parse_const_declaration(parser_t *parser) {
@@ -142,7 +143,7 @@ void parse_const_declaration(parser_t *parser) {
     }
 }
 
-void parse_var_declaration(parser_t *parser) {
+int parse_var_declaration(parser_t *parser) {
     if (current_token(parser)->type == varsym) {
         int num_vars = 0;
         do {
@@ -172,20 +173,12 @@ void parse_var_declaration(parser_t *parser) {
             error(SEMICOLON_EXPECTED_VAR_DECLARATION);
         }
 
-        if (num_vars >= 1) {
-            // Allocate space on the stack for the variables
-            emit_instruction(
-                &(parser->code_generator),
-                INC,
-                0,
-                0,
-                num_vars
-            );
-        }
-
         // Consume semicolon
         next_token(parser);
+
+        return num_vars;
     }
+    return 0;
 }
 
 void parse_proc_declaration(parser_t *parser){
@@ -217,6 +210,9 @@ void parse_proc_declaration(parser_t *parser){
         if (next_token(parser)->type != semicolonsym) {
             error(SEMICOLON_EXPECTED_PROC_DECLARATION);
         }
+
+        // Consume first semicolon
+        next_token(parser);
 
         parse_block(parser);
 
@@ -305,6 +301,8 @@ void parse_statement(parser_t *parser) {
             s->address
         );
 
+        // Consume identifier
+        next_token(parser);
     }
 
     else if (current_token(parser)->type == beginsym) {

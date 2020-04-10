@@ -93,8 +93,9 @@ void parse_const_declaration(parser_t *parser);
  * var-declaration ::= ["var" ident {"," ident} ";"].
  * 
  * @param parser Pointer to the parser containing the tokens to parse
+ * @return int Number of variables declared
  */
-void parse_var_declaration(parser_t *parser);
+int parse_var_declaration(parser_t *parser);
 
 /**
  * @brief Parse a procedure declaration
