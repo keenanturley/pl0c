@@ -35,15 +35,6 @@ token *next_token(parser_t *parser) {
 }
 
 void parse_program(parser_t *parser) {
-    // Allocate space on the stack for FV, SL, DL, and RA
-    emit_instruction(
-        &(parser->code_generator),
-        INC,
-        0,
-        0,
-        4
-    );
-
     parse_block(parser);
     if (current_token(parser)->type != periodsym) {
         error(UNEXPECTED_END_OF_PROGRAM);
@@ -63,9 +54,33 @@ void parse_block(parser_t *parser) {
     // We entered a new level
     (parser->current_level)++;
 
+    // Emit preparatory jump
+    int prep_jump_addr = parser->code_generator.code_size;
+    emit_instruction(
+        &(parser->code_generator),
+        JMP,
+        0,
+        0,
+        0
+    );
+
     parse_const_declaration(parser);
     parse_var_declaration(parser);
     parse_proc_declaration(parser);
+
+    // Fill in address to prep jump
+    parser->code_generator.code[prep_jump_addr].modifier = 
+        parser->code_generator.code_size;
+
+    // Make space on stack for activation record
+    emit_instruction(
+        &(parser->code_generator),
+        INC,
+        0,
+        0,
+        4
+    );
+
     parse_statement(parser);
     
     // Invalidate all symbols in this level or above
@@ -192,7 +207,11 @@ void parse_proc_declaration(parser_t *parser){
         }
 
         // Create and insert procedure symbol
-        symbol s = create_proc_symbol(current_token(parser)->name, parser->current_level);
+        symbol s = create_proc_symbol(
+            current_token(parser)->name, 
+            parser->current_level,
+            parser->code_generator.code_size
+        );
         insert_symbol(&(parser->symbol_table), &s);
 
         if (next_token(parser)->type != semicolonsym) {

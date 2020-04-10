@@ -97,9 +97,10 @@ symbol create_var_symbol(char name[12], int level);
  * 
  * @param name Name of the identifier
  * @param level Lexigraphical level of this procedure
+ * @param address Address of procedure in code
  * @return symbol The created symbol
  */
-symbol create_proc_symbol(char name[12], int level);
+symbol create_proc_symbol(char name[12], int level, int address);
 
 /**
  * @brief Copies the values from sym into the next available symbol
