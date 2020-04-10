@@ -129,6 +129,7 @@ void step(p_machine * vm) {
 }
 
 void run(p_machine * vm) {
+    print_initial_values(vm);
     while (vm->PC < MAX_CODE_LENGTH && vm->halt == 0) {
         step(vm);
     }
