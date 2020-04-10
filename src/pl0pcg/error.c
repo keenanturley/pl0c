@@ -31,7 +31,10 @@ char *error_type_strings[] = {
     "Attempted to write value from an identifier that is not a variable nor constant.",
     "Attempted to redeclare existing identifier.",
     "Identifier expected in procedure declaration.",
-    "Semicolon expected in procedure declaration."
+    "Semicolon expected in procedure declaration.",
+    "Attempted to call undeclared procedure.",
+    "Attempted to call non-procedure identifier.",
+    "Identifier expected after call keyword."
 };
 
 void error(error_type e) {

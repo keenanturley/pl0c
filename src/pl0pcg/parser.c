@@ -260,7 +260,7 @@ void parse_statement(parser_t *parser) {
 
     else if (current_token(parser)->type == callsym) {
         if (next_token(parser)->type != identsym) {
-            error(IDENTIFIER_EXPECTED_READ_STATEMENT);
+            error(IDENTIFIER_EXPECTED_PROC_STATEMENT);
         }
 
         // Retrieve this identifier's symbol from the table
@@ -270,15 +270,15 @@ void parse_statement(parser_t *parser) {
         );
 
         if (s == NULL) {
-            error(1); // TODO: error: procedure does not exist
+            error(CALL_TO_UNDECLARED_PROCEDURE);
         }
 
         if (s->kind != KIND_PROC) {
-            error(1); // TODO: error: calling non-procedure identifier
+            error(CALL_TO_NON_PROCEDURE); // TODO: error: calling non-procedure identifier
         }
 
         //generate code for CAL instruction
-                emit_instruction(
+        emit_instruction(
             &(parser->code_generator),
             CAL,
             0,
