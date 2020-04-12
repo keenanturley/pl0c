@@ -54,6 +54,9 @@ void parse_block(parser_t *parser) {
     // We entered a new level
     (parser->current_level)++;
 
+    // Set initial var address index
+    parser->symbol_table.var_address_index = 4;
+
     parse_const_declaration(parser);
     int num_vars = parse_var_declaration(parser);
 
@@ -86,9 +89,6 @@ void parse_block(parser_t *parser) {
     
     // Invalidate all symbols in this level or above
     invalidate_symbols(&(parser->symbol_table), (parser->current_level));
-
-    // Reset var address index
-    parser->symbol_table.var_address_index = 4;
 
     // We are leaving the block
     (parser->current_level)--;
