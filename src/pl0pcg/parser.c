@@ -338,7 +338,7 @@ void parse_statement(parser_t *parser) {
         next_token(parser);
 
         // Save current code spot
-        int start = parser->code_generator.code_size;
+        int start_if = parser->code_generator.code_size;
         // Emit the conditional jump instruction
         emit_instruction(
             &(parser->code_generator),
@@ -355,7 +355,32 @@ void parse_statement(parser_t *parser) {
 
         // Modify the conditional jump to jump after statement
         code_generator_t *cg = &(parser->code_generator);
-        cg->code[start].modifier = cg->code_size;
+        cg->code[start_if].modifier = cg->code_size;
+
+        if (current_token(parser)->type == elsesym) {
+            // Consume else
+            next_token(parser);
+            
+            // Set up a jump to skip the else
+            int start_else = parser->code_generator.code_size;
+            // Emit the conditional jump instruction
+            emit_instruction(
+                &(parser->code_generator),
+                JMP,
+                0,
+                0,
+                0
+            );
+
+            // Increment the JPC address to skip the new else JMP
+            (cg->code[start_if].modifier)++;
+
+            // Parse the statements following "else"
+            parse_statement(parser);
+
+            // Set the jump to the next instruction
+            cg->code[start_else].modifier = cg->code_size;
+        }
     }
     else if (current_token(parser)->type == whilesym) {
         // Consume while symbol
