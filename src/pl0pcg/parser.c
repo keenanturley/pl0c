@@ -343,7 +343,7 @@ void parse_statement(parser_t *parser) {
         emit_instruction(
             &(parser->code_generator),
             JPC,
-            0,
+            parser->register_cursor - 1,
             0,
             0
         );
