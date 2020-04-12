@@ -36,7 +36,7 @@ symbol create_var_symbol(char name[12], int level) {
     s.kind = KIND_VAR;
     memcpy(s.name, name, sizeof(char) * 12);
     s.value = 0;
-    s.level = 0;
+    s.level = level;
     s.address = 0;
     s.mark = MARK_VALID;
     
