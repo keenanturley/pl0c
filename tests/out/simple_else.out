@@ -1,0 +1,110 @@
+Lexeme List:
+29 2 x 17 2 y 18 21 2 x 20 3 5 18 23 2 x 13 3 10 24 2 y 20 3 1 33 2 y 20 3 2 18 31 2 y 18 23 2 x 11 3 10 24 2 y 20 3 3 33 2 y 20 3 4 18 31 2 y 18 22 19 
+
+Lexeme List (Symbolic Representation):
+varsym identsym x commasym identsym y semicolonsym beginsym identsym x becomessym numbersym 5 semicolonsym ifsym identsym x gtrsym numbersym 10 thensym identsym y becomessym numbersym 1 elsesym identsym y becomessym numbersym 2 semicolonsym writesym identsym y semicolonsym ifsym identsym x lessym numbersym 10 thensym identsym y becomessym numbersym 3 elsesym identsym y becomessym numbersym 4 semicolonsym writesym identsym y semicolonsym endsym periodsym 
+
+No errors, program is syntactically correct
+
+Assembly Code:
+Line  OP   R  L  M
+0     jmp  0  0  1
+1     inc  0  0  6
+2     lit  0  0  5
+3     sto  0  0  4
+4     lod  0  0  4
+5     lit  1  0  10
+6     gtr  0  0  1
+7     jpc  0  0  11
+8     lit  0  0  1
+9     sto  0  0  5
+10    jmp  0  0  13
+11    lit  0  0  2
+12    sto  0  0  5
+13    lod  0  0  5
+14    sio  0  0  0
+15    lod  0  0  4
+16    lit  1  0  10
+17    lss  0  0  1
+18    jpc  0  0  22
+19    lit  0  0  3
+20    sto  0  0  5
+21    jmp  0  0  24
+22    lit  0  0  4
+23    sto  0  0  5
+24    lod  0  0  5
+25    sio  0  0  0
+26    sio  0  0  3
+
+                      pc      bp      sp      registers
+Initial values        0       1       0       0 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+0   jmp  0  0  1      1       1       0       0 0 0 0 0 0 0 0 
+Stack: 
+
+1   inc  0  0  6      2       1       6       0 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 0 0 
+
+2   lit  0  0  5      3       1       6       5 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 0 0 
+
+3   sto  0  0  4      4       1       6       5 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 0 
+
+4   lod  0  0  4      5       1       6       5 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 0 
+
+5   lit  1  0  10     6       1       6       5 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 0 
+
+6   gtr  0  0  1      7       1       6       0 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 0 
+
+7   jpc  0  0  11     11      1       6       0 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 0 
+
+11  lit  0  0  2      12      1       6       2 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 0 
+
+12  sto  0  0  5      13      1       6       2 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 2 
+
+13  lod  0  0  5      14      1       6       2 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 2 
+
+$R0 = 2
+14  sio  0  0  0      15      1       6       2 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 2 
+
+15  lod  0  0  4      16      1       6       5 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 2 
+
+16  lit  1  0  10     17      1       6       5 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 2 
+
+17  lss  0  0  1      18      1       6       1 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 2 
+
+18  jpc  0  0  22     19      1       6       1 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 2 
+
+19  lit  0  0  3      20      1       6       3 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 2 
+
+20  sto  0  0  5      21      1       6       3 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 3 
+
+21  jmp  0  0  24     24      1       6       3 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 3 
+
+24  lod  0  0  5      25      1       6       3 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 3 
+
+$R0 = 3
+25  sio  0  0  0      26      1       6       3 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 3 
+
+26  sio  0  0  3      27      1       6       3 10 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 3 
+
