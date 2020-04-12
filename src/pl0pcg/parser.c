@@ -348,6 +348,9 @@ void parse_statement(parser_t *parser) {
             0
         );
 
+        // Decrement register cursor since we're done comparing
+        (parser->register_cursor)--;
+
         parse_statement(parser);
 
         // Modify the conditional jump to jump after statement
