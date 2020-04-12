@@ -265,7 +265,7 @@ void parse_statement(parser_t *parser) {
             &(parser->code_generator),
             STO,
             parser->register_cursor - 1,
-            s->level,
+            parser->current_level - s->level,
             s->address
         );
 
@@ -459,7 +459,7 @@ void parse_statement(parser_t *parser) {
                 &(parser->code_generator),
                 LOD,
                 parser->register_cursor,
-                s->level,
+                parser->current_level - s->level,
                 s->address
             );
         }
@@ -673,7 +673,7 @@ void parse_factor(parser_t *parser) {
                 &(parser->code_generator),
                 LOD,
                 (parser->register_cursor)++,
-                s->level,
+                parser->current_level - s->level,
                 s->address
             );
         } 
