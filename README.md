@@ -1,4 +1,4 @@
-# PL/0 Compiler - UCF COP3402 Project 3
+# PL/0 Compiler - UCF COP3402 Project 4
 
 ## Authors
 
@@ -39,11 +39,15 @@ Where `file-path` is the path to the source file you want to compile.
 
 ## Notes To the TA
 
+- This version of the compiler supports procedures and if-then-else statements.
+
+The following info from Project 3 still applies:
+
 - The test cases are in the `tests` directory, with inputs and outputes being in the `in` and `out` folders, respectively
 
   - Each test case output is run with all flags enabled
 
-  - The files prefixed with `sample` are input and output of a valid test case.
+  - Files with lowercase names are either examples or our custom test cases (`complex_else.in` is particularly good).
 
   - All other cases correspond to errors
 
