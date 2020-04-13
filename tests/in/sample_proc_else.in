@@ -1,7 +1,0 @@
-var procedure, call, else;
-begin
-    call := 5;
-    else := 10;
-    procedure := call + else;
-    write procedure;
-end.
