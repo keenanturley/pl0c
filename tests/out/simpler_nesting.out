@@ -1,0 +1,51 @@
+Lexeme List:
+29 2 x 17 2 y 18 30 2 a 18 21 2 x 20 3 5 18 22 18 21 27 2 a 22 19 
+
+Lexeme List (Symbolic Representation):
+varsym identsym x commasym identsym y semicolonsym procsym identsym a semicolonsym beginsym identsym x becomessym numbersym 5 semicolonsym endsym semicolonsym beginsym callsym identsym a endsym periodsym 
+
+No errors, program is syntactically correct
+
+Assembly Code:
+Line  OP   R  L  M
+0     jmp  0  0  6
+1     jmp  0  0  2
+2     inc  0  0  4
+3     lit  0  0  5
+4     sto  0  1  4
+5     rtn  0  0  0
+6     inc  0  0  6
+7     cal  0  0  1
+8     sio  0  0  3
+
+                      pc      bp      sp      registers
+Initial values        0       1       0       0 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+0   jmp  0  0  6      6       1       0       0 0 0 0 0 0 0 0 
+Stack: 
+
+6   inc  0  0  6      7       1       6       0 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 0 0 
+
+7   cal  0  0  1      1       7       6       0 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 0 0 
+
+1   jmp  0  0  2      2       7       6       0 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 0 0 
+
+2   inc  0  0  4      3       7       10      0 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 0 0 | 0 1 1 8 
+
+3   lit  0  0  5      4       7       10      5 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 0 0 | 0 1 1 8 
+
+4   sto  0  1  4      5       7       10      5 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 0 | 0 1 1 8 
+
+5   rtn  0  0  0      8       1       6       5 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 0 
+
+8   sio  0  0  3      9       1       6       5 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 5 0 
+

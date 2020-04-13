@@ -4,4 +4,4 @@ Lexeme List:
 Lexeme List (Symbolic Representation):
 varsym identsym x commasym identsym y semicolonsym beginsym identsym x becomessym numbersym 5 semicolonsym writesym identsym x semicolonsym identsym y becomessym lparentsym numbersym 2 plussym 
 
-Error: Unexpected end of program, period should indicate terminate program.
+Error: Unexpected end of program, period should indicate program termination.

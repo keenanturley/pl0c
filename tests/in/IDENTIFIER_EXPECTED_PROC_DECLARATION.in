@@ -1,0 +1,10 @@
+procedure 5;
+    var x, y;
+    begin  
+        x := 5;
+        y := x * 10;
+        write y
+end;
+begin
+    call a;
+end.

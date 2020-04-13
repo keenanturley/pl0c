@@ -1,0 +1,7 @@
+Lexeme List:
+29 30 17 27 17 33 18 21 27 20 3 5 18 33 20 3 10 18 30 20 27 4 33 18 31 30 18 22 19 
+
+Lexeme List (Symbolic Representation):
+varsym procsym commasym callsym commasym elsesym semicolonsym beginsym callsym becomessym numbersym 5 semicolonsym elsesym becomessym numbersym 10 semicolonsym procsym becomessym callsym plussym elsesym semicolonsym writesym procsym semicolonsym endsym periodsym 
+
+Error: Identifier expected in var declaration.

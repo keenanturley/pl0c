@@ -1,0 +1,7 @@
+Lexeme List:
+29 2 b 18 30 2 a 18 29 2 x 17 2 y 18 21 2 x 20 3 5 18 2 y 20 2 x 6 3 10 18 31 2 y 22 18 21 27 2 b 18 22 19 
+
+Lexeme List (Symbolic Representation):
+varsym identsym b semicolonsym procsym identsym a semicolonsym varsym identsym x commasym identsym y semicolonsym beginsym identsym x becomessym numbersym 5 semicolonsym identsym y becomessym identsym x multsym numbersym 10 semicolonsym writesym identsym y endsym semicolonsym beginsym callsym identsym b semicolonsym endsym periodsym 
+
+Error: Attempted to call non-procedure identifier.

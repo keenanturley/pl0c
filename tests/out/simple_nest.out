@@ -1,0 +1,46 @@
+Lexeme List:
+30 2 MAIN2 18 30 2 BIGSUB 18 30 2 SUB1 18 21 22 18 30 2 SUB2 18 30 2 SUB3 18 21 27 2 SUB1 18 22 18 21 27 2 SUB3 18 22 18 21 27 2 SUB2 18 22 18 21 27 2 BIGSUB 18 22 18 21 22 19 
+
+Lexeme List (Symbolic Representation):
+procsym identsym MAIN2 semicolonsym procsym identsym BIGSUB semicolonsym procsym identsym SUB1 semicolonsym beginsym endsym semicolonsym procsym identsym SUB2 semicolonsym procsym identsym SUB3 semicolonsym beginsym callsym identsym SUB1 semicolonsym endsym semicolonsym beginsym callsym identsym SUB3 semicolonsym endsym semicolonsym beginsym callsym identsym SUB2 semicolonsym endsym semicolonsym beginsym callsym identsym BIGSUB semicolonsym endsym semicolonsym beginsym endsym periodsym 
+
+No errors, program is syntactically correct
+
+Assembly Code:
+Line  OP   R  L  M
+0     jmp  0  0  20
+1     jmp  0  0  17
+2     jmp  0  0  14
+3     jmp  0  0  4
+4     inc  0  0  4
+5     rtn  0  0  0
+6     jmp  0  0  11
+7     jmp  0  0  8
+8     inc  0  0  4
+9     cal  0  2  3
+10    rtn  0  0  0
+11    inc  0  0  4
+12    cal  0  0  7
+13    rtn  0  0  0
+14    inc  0  0  4
+15    cal  0  0  6
+16    rtn  0  0  0
+17    inc  0  0  4
+18    cal  0  0  2
+19    rtn  0  0  0
+20    inc  0  0  4
+21    sio  0  0  3
+
+                      pc      bp      sp      registers
+Initial values        0       1       0       0 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+0   jmp  0  0  20     20      1       0       0 0 0 0 0 0 0 0 
+Stack: 
+
+20  inc  0  0  4      21      1       4       0 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 
+
+21  sio  0  0  3      22      1       4       0 0 0 0 0 0 0 0 
+Stack: 0 0 0 0 
+
