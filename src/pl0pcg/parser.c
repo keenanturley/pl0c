@@ -275,7 +275,7 @@ void parse_statement(parser_t *parser) {
 
     else if (current_token(parser)->type == callsym) {
         if (next_token(parser)->type != identsym) {
-            error(IDENTIFIER_EXPECTED_PROC_STATEMENT);
+            error(IDENTIFIER_EXPECTED_CALL_STATEMENT);
         }
 
         // Retrieve this identifier's symbol from the table
